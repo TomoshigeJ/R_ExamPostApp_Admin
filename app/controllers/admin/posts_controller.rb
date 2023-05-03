@@ -9,9 +9,17 @@ class Admin::PostsController < Admin::BaseController
   def edit; end
 
   def update
+    if @post.update(post_params)
+      redirect_to admin_posts_path, success: 'アップデートじょん'
+    else
+      flash.now[:danger] = 'No アップデートじょん'
+      render :edit
+    end
   end
 
   def destroy
+    @post.destroy!
+    redirect_to admin_posts_path, success: 'デリートじょん'
   end
 
   private
@@ -25,5 +33,6 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def post_params
+    params.require(:post).permit(:title, :content)
   end
 end
