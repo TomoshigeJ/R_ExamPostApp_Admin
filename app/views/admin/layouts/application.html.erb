@@ -29,7 +29,8 @@
     </nav>
     <%= render 'admin/shared/sidebar' %>
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">                                    
+    <div class="content-wrapper">
+      <%= render 'shared/flash_message' %>                                 
       <%= yield %>
     </div>
     <footer class="main-footer">
