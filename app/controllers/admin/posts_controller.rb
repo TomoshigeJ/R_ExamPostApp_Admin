@@ -1,7 +1,7 @@
 class Admin::PostsController < Admin::BaseController
   before_action :set_posts, only: %i[index]
   before_action :set_post, only: %i[show edit update destroy]
-  
+
   def index; end
 
   def show; end
